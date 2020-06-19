@@ -1,0 +1,30 @@
+{
+  "name": "chai-purify",
+  "version": "0.0.1",
+  "description": "Chai matchers for Purify-ts",
+  "repository": "github:dave-inc/chai-purify",
+  "license": "MIT",
+  "keywords": [
+    "chai",
+    "purify-ts",
+    "test"
+  ],
+  "scripts": {
+    "lint": "yarn tslint --format stylish --project ./tsconfig.json",
+    "test": "yarn mocha -r ts-node/register test/**/*.ts"
+  },
+  "peerDependencies": {
+    "chai": "^4.2.0",
+    "purify-ts": "^0.15.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "purify-ts": "^0.15.1",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  }
+}
