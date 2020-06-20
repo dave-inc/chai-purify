@@ -1,0 +1,34 @@
+import 'mocha';
+import { expect } from 'chai';
+import '../src';
+import { Just, Maybe, Nothing } from 'purify-ts/Maybe';
+
+describe('Maybe', () => {
+
+  it('should check for Nothing', () => {
+    expect(Nothing).to.be.Nothing;
+    expect(Maybe.fromNullable(null)).to.be.Nothing;
+  });
+
+  it('should check for not Nothing', () => {
+    expect('thing').to.not.be.Nothing;
+    expect(Just(5)).to.not.be.Nothing;
+  });
+
+  it('should check for a Just', () => {
+    expect(Just(5)).to.be.Just;
+    expect(Maybe.fromNullable('foo')).to.be.Just;
+  });
+
+  it('should check for not a Just', () => {
+    expect(Nothing).to.not.be.Just;
+    expect([]).to.not.be.Just;
+    expect(Maybe.fromNullable(null)).to.not.be.Just;
+  });
+
+  it('should check for a Just with value', () => {
+    expect(Just(5)).to.be.Just(5);
+    expect(Maybe.fromNullable('foo')).to.be.Just('foo');
+  });
+
+});
