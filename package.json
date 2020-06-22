@@ -12,7 +12,8 @@
     "test"
   ],
   "scripts": {
-    "lint": "yarn tslint --format stylish --project ./tsconfig.json",
+    "lint": "yarn tslint --format stylish --project tsconfig.json",
+    "compile": "yarn tsc --noEmit",
     "test": "yarn mocha -r ts-node/register test/**/*.ts",
     "build": "rm -rf dist && yarn tsc -p tsconfig.publish.json",
     "prepublish": "yarn build"
