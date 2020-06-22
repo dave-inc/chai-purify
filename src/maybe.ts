@@ -1,14 +1,28 @@
-import { Assertion, util } from 'chai';
+import { Assertion } from 'chai';
 import { Just, Maybe, Nothing } from 'purify-ts/Maybe';
 
 declare global {
   export namespace Chai {
     interface Assertion {
-      Just<T>(value?: T): Assertion;
+      Maybe: Assertion;
       Nothing: Assertion;
+      Just(value?: any): Assertion;
     }
   }
 }
+
+function isMaybe(obj: any): obj is Maybe<unknown> {
+  return obj?.constructor === Maybe;
+}
+
+Assertion.addProperty('Maybe', function() {
+  this.assert(
+    isMaybe(this._obj),
+    `expected #{this} to be a Maybe`,
+    `expected #{this} to not be a Maybe`,
+    Maybe,
+  );
+});
 
 Assertion.addProperty('Nothing', function() {
   this.assert(
@@ -21,18 +35,18 @@ Assertion.addProperty('Nothing', function() {
   );
 });
 
-Assertion.addMethod('Just', function<T>(value?: T) {
+Assertion.addMethod('Just', function(value?: any) {
   const obj = this._obj;
   if (arguments.length === 0) {
     this.assert(
-      obj.constructor === Maybe && obj.isJust(),
+      isMaybe(obj) && obj.isJust(),
       `expected #{this} to be a Just`,
       `expected #{this} to not be a Just`,
       Just(value),
     );
   } else {
     this.assert(
-      Just(value).equals(obj as Maybe<T>),
+      Just(value).equals(obj),
       `expected #{this} to be ${Just(value)}`,
       `expected #{this} to not be ${Just(value)}`,
       Just(value),
