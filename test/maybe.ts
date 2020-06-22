@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import '../src';
+import '../src/maybe';
 import { Just, Maybe, Nothing } from 'purify-ts/Maybe';
 
 describe('Maybe', () => {

@@ -1,6 +1,6 @@
 {
   "name": "chai-purify",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Chai matchers for Purify-ts",
   "repository": "github:dave-inc/chai-purify",
   "license": "MIT",
