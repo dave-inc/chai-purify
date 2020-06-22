@@ -31,7 +31,7 @@ $ npm install --save-dev chai-purify
     expect(Left('foo')).to.be.Either;
     expect(Left('foo')).to.be.Left();
     expect(Left('foo')).to.be.Left('foo');
-    expect('foo').to.be.Left('foo');
+    expect('foo').to.not.be.Left('foo');
     expect(Left('foo')).to.not.be.Right();
 
 
