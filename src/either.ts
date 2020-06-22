@@ -5,8 +5,8 @@ declare global {
   export namespace Chai {
     interface Assertion {
       Either: Assertion;
-      Left(value: any): Assertion;
-      Right(value: any): Assertion
+      Left(value?: any): Assertion;
+      Right(value?: any): Assertion
     }
   }
 }
@@ -24,7 +24,7 @@ Assertion.addProperty('Either', function() {
   );
 });
 
-Assertion.addMethod('Left', function(value: any) {
+Assertion.addMethod('Left', function(value?: any) {
   const obj = this._obj;
   if (arguments.length === 0) {
     this.assert(
@@ -46,7 +46,7 @@ Assertion.addMethod('Left', function(value: any) {
   }
 });
 
-Assertion.addMethod('Right', function(value: any) {
+Assertion.addMethod('Right', function(value?: any) {
   const obj = this._obj;
   if (arguments.length === 0) {
     this.assert(
