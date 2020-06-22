@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "outDir": "dist",
     "lib": ["dom", "es2019"],
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -8,5 +9,6 @@
     "sourceMap": true,
     "strict": true,
     "noUnusedLocals": true,
-  }
+  },
+  "exclude": ["test"]
 }
