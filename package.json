@@ -32,6 +32,9 @@
     "tslint": "^6.1.2",
     "typescript": "^3.9.5"
   },
+  "resolutions": {
+    "mocha/**/lodash": "^4.17.19"
+  },
   "files": [
     "package.json",
     "README.md",
